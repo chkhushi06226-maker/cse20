@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Food Ordering Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f4f4f4;
+}
+
+/* Header */
+header{
+    background:#ff5722;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+/* Menu */
+.container{
+    padding:30px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    width:250px;
+    margin:15px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+button{
+    background:#ff5722;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+/* Bill Section */
+.bill{
+    background:white;
+    margin:30px;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Online Food Ordering</h1>
+<p>Select Your Favourite Food</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<img src="https://picsum.photos/200?1">
+<h3>Pizza</h3>
+<p>₹200</p>
+<button onclick="addItem(200)">Order</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/200?2">
+<h3>Burger</h3>
+<p>₹150</p>
+<button onclick="addItem(150)">Order</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/200?3">
+<h3>Pasta</h3>
+<p>₹180</p>
+<button onclick="addItem(180)">Order</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/200?4">
+<h3>Momos</h3>
+<p>₹120</p>
+<button onclick="addItem(120)">Order</button>
+</div>
+
+</div>
+
+<div class="bill">
+<h2>Total Bill: ₹ <span id="total">0</span></h2>
+<button onclick="resetBill()">Reset Order</button>
+</div>
+
+<script>
+let total = 0;
+
+function addItem(price){
+    total += price;
+    document.getElementById("total").innerText = total;
+}
+
+function resetBill(){
+    total = 0;
+    document.getElementById("total").innerText = total;
+}
+</script>
+
+</body>
+</html>
