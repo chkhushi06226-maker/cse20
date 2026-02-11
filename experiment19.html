@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital Clock & Alarm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+    font-family: Arial;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    text-align:center;
+    margin-top:100px;
+}
+
+.clock{
+    font-size:60px;
+    color:white;
+    margin-bottom:30px;
+}
+
+.container{
+    background:white;
+    display:inline-block;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 15px black;
+}
+
+input{
+    padding:10px;
+    margin:10px;
+}
+
+button{
+    padding:10px 20px;
+    background:#ff7e5f;
+    border:none;
+    color:white;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="clock" id="clock"></div>
+
+<div class="container">
+<h3>Set Alarm</h3>
+
+<input type="time" id="alarmTime">
+<br>
+<button onclick="setAlarm()">Set Alarm</button>
+
+<p id="status"></p>
+</div>
+
+<audio id="alarmSound">
+<source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3">
+</audio>
+
+<script>
+let alarmTime = "";
+
+function showTime(){
+let now = new Date();
+let time = now.toLocaleTimeString();
+document.getElementById("clock").innerHTML = time;
+
+if(alarmTime === time){
+document.getElementById("alarmSound").play();
+alert("Alarm Ringing!");
+alarmTime="";
+}
+}
+
+setInterval(showTime,1000);
+
+function setAlarm(){
+alarmTime = new Date().toLocaleDateString() + " " +
+document.getElementById("alarmTime").value + ":00";
+
+alarmTime = new Date(alarmTime).toLocaleTimeString();
+
+document.getElementById("status").innerHTML =
+"Alarm set for " + alarmTime;
+}
+</script>
+
+</body>
+</html>
