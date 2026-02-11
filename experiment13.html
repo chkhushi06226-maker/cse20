@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portfolio</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+}
+
+/* Navbar */
+nav{
+    background:#333;
+    color:white;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    color:white;
+    margin:15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* Header */
+header{
+    background:#0077b6;
+    color:white;
+    padding:60px;
+    text-align:center;
+}
+
+/* Section */
+section{
+    padding:40px;
+}
+
+/* Card */
+.card{
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+/* Skills Bar */
+.skill{
+    margin:10px 0;
+}
+
+.bar{
+    background:#ddd;
+    border-radius:20px;
+}
+
+.progress{
+    background:#0077b6;
+    padding:8px;
+    border-radius:20px;
+    color:white;
+}
+
+/* Contact Form */
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button{
+    background:#0077b6;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    cursor:pointer;
+}
+
+/* Footer */
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- Header -->
+<header>
+<h1>Student Portfolio</h1>
+<p>Welcome to My Personal Website</p>
+</header>
+
+<!-- About -->
+<section id="about">
+<div class="card">
+<h2>About Me</h2>
+<p>Hello! I am a student learning Web Development. I enjoy creating websites and learning new technologies.</p>
+</div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+<div class="card">
+<h2>My Skills</h2>
+
+<div class="skill">
+HTML
+<div class="bar"><div class="progress" style="width:90%">90%</div></div>
+</div>
+
+<div class="skill">
+CSS
+<div class="bar"><div class="progress" style="width:80%">80%</div></div>
+</div>
+
+<div class="skill">
+JavaScript
+<div class="bar"><div class="progress" style="width:70%">70%</div></div>
+</div>
+
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+<div class="card">
+<h2>Contact Me</h2>
+
+<form onsubmit="return validateForm()">
+<input type="text" id="name" placeholder="Enter Name">
+<input type="email" id="email" placeholder="Enter Email">
+<textarea id="msg" placeholder="Enter Message"></textarea>
+<button type="submit">Send</button>
+</form>
+
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<p>© 2026 Student Portfolio</p>
+</footer>
+
+<script>
+function validateForm(){
+    let name=document.getElementById("name").value;
+    let email=document.getElementById("email").value;
+    let msg=document.getElementById("msg").value;
+
+    if(name=="" || email=="" || msg==""){
+        alert("All fields are required");
+        return false;
+    }
+
+    alert("Message Sent Successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>
