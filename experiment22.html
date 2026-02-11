@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Voting System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+    font-family: Arial;
+    background:#f0f0f0;
+    margin:0;
+    text-align:center;
+}
+
+header{
+    background:#673ab7;
+    color:white;
+    padding:20px;
+}
+
+.container{
+    background:white;
+    width:350px;
+    margin:40px auto;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+button{
+    background:#673ab7;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin-top:15px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Online Voting System</h1>
+</header>
+
+<div class="container">
+
+<h3>Select Your Candidate</h3>
+
+<input type="radio" name="vote" value="A"> Candidate A<br>
+<input type="radio" name="vote" value="B"> Candidate B<br>
+<input type="radio" name="vote" value="C"> Candidate C<br>
+
+<button onclick="submitVote()">Submit Vote</button>
+
+<h3 id="result"></h3>
+
+</div>
+
+<script>
+let votes = {A:0, B:0, C:0};
+
+function submitVote(){
+
+let selected = document.querySelector('input[name="vote"]:checked');
+
+if(!selected){
+alert("Please select a candidate");
+return;
+}
+
+votes[selected.value]++;
+
+document.getElementById("result").innerHTML =
+"Candidate A: "+votes.A+
+"<br>Candidate B: "+votes.B+
+"<br>Candidate C: "+votes.C;
+}
+</script>
+
+</body>
+</html>
